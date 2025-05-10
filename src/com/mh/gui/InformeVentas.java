@@ -39,7 +39,7 @@ public class InformeVentas extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Fecha", "Posicion", "Nombre", "Precio", "Tipo", "Cantidad"
+                "Fecha", "Posición", "Nombre", "Precio", "Tipo", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {

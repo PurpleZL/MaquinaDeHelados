@@ -211,7 +211,7 @@ public class GUI extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Posicion", "Nombre", "Precio", "Tipo", "Cantidad"
+                "Posición", "Nombre", "Precio", "Tipo", "Cantidad"
             }
         ) {
             Class[] types = new Class [] {
@@ -269,7 +269,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Introduce Posicion");
+        jLabel1.setText("Introduce Posición");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 125, 30));
 
         visualMonedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -305,7 +305,7 @@ public class GUI extends javax.swing.JFrame {
                 botonDevolverDineroActionPerformed(evt);
             }
         });
-        jPanel1.add(botonDevolverDinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
+        jPanel1.add(botonDevolverDinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, -1, -1));
 
         botonPosicion8.setForeground(new java.awt.Color(0, 0, 0));
         botonPosicion8.setText("8");
@@ -326,7 +326,7 @@ public class GUI extends javax.swing.JFrame {
         imagen.setIconTextGap(0);
         jPanel1.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
 
-        menuBarra.setText("Menu");
+        menuBarra.setText("Menú");
 
         submenuVenta.setText("Venta");
         submenuVenta.addActionListener(new java.awt.event.ActionListener() {
