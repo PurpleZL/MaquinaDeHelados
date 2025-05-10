@@ -198,6 +198,9 @@ public class GUI extends javax.swing.JFrame {
         });
         jPanel1.add(botonPosicion6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 40, 40));
 
+        tablaHelados.setBackground(new java.awt.Color(255, 153, 153));
+        tablaHelados.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 255), 3, true));
+        tablaHelados.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tablaHelados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -229,6 +232,7 @@ public class GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaHelados.setSelectionBackground(new java.awt.Color(255, 102, 102));
         tablaHelados.getTableHeader().setReorderingAllowed(false);
         tablaHelados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -237,7 +241,7 @@ public class GUI extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaHelados);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 580, 259));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 580, 172));
 
         inputPosicion.setEditable(false);
         inputPosicion.setToolTipText("Pedro Sanchez Dimision");
