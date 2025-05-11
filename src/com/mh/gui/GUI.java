@@ -18,6 +18,8 @@ import javax.sound.sampled.Clip;
 public class GUI extends javax.swing.JFrame {
 
     MaquinaDeHelados mdh = new MaquinaDeHelados();
+    private Clip clip;
+    private boolean musicaEncendida = true;
 
 //        Toolkit.getDefaultToolkit().beep();
     public GUI() {
@@ -26,7 +28,7 @@ public class GUI extends javax.swing.JFrame {
             ArrayList<Helado> listaHelados = mdh.getHelados();
             cargarTabla(listaHelados);
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(getClass().getResource("../sonido/camionHelados.wav"));
-            Clip clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
             clip.open(audioIn);
             //clip.start();
             clip.loop(Clip.LOOP_CONTINUOUSLY);
@@ -63,6 +65,7 @@ public class GUI extends javax.swing.JFrame {
         botonPosicion7 = new javax.swing.JButton();
         botonDevolverDinero = new javax.swing.JButton();
         botonPosicion8 = new javax.swing.JButton();
+        botonMusica = new javax.swing.JButton();
         imagen = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuBarra = new javax.swing.JMenu();
@@ -80,7 +83,7 @@ public class GUI extends javax.swing.JFrame {
                 botonMonedasActionPerformed(evt);
             }
         });
-        jPanel1.add(botonMonedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 160, -1));
+        jPanel1.add(botonMonedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 160, -1));
 
         botonPosicion9.setForeground(new java.awt.Color(0, 0, 0));
         botonPosicion9.setText("9");
@@ -250,7 +253,7 @@ public class GUI extends javax.swing.JFrame {
                 inputPosicionActionPerformed(evt);
             }
         });
-        jPanel1.add(inputPosicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 125, 50));
+        jPanel1.add(inputPosicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 125, 50));
 
         botonPedir.setForeground(new java.awt.Color(0, 0, 0));
         botonPedir.setText("Pedir");
@@ -259,7 +262,7 @@ public class GUI extends javax.swing.JFrame {
                 botonPedirActionPerformed(evt);
             }
         });
-        jPanel1.add(botonPedir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));
+        jPanel1.add(botonPedir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
 
         botonSalida.setBackground(new java.awt.Color(0, 0, 0));
         botonSalida.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,24 +272,24 @@ public class GUI extends javax.swing.JFrame {
                 botonSalidaActionPerformed(evt);
             }
         });
-        jPanel1.add(botonSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 89, -1));
+        jPanel1.add(botonSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 89, -1));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Introduce Posición");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 125, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 125, 30));
 
         visualMonedero.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         visualMonedero.setForeground(new java.awt.Color(0, 0, 0));
         visualMonedero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         visualMonedero.setText("0,00€");
-        jPanel1.add(visualMonedero, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 60, 40));
+        jPanel1.add(visualMonedero, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 60, 40));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Monedero");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
 
         botonPosicion7.setForeground(new java.awt.Color(0, 0, 0));
         botonPosicion7.setText("7");
@@ -309,7 +312,7 @@ public class GUI extends javax.swing.JFrame {
                 botonDevolverDineroActionPerformed(evt);
             }
         });
-        jPanel1.add(botonDevolverDinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, -1, -1));
+        jPanel1.add(botonDevolverDinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, -1, -1));
 
         botonPosicion8.setForeground(new java.awt.Color(0, 0, 0));
         botonPosicion8.setText("8");
@@ -324,6 +327,19 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jPanel1.add(botonPosicion8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 40, 40));
+
+        botonMusica.setText("Música OFF");
+        botonMusica.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonMusicaMouseClicked(evt);
+            }
+        });
+        botonMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMusicaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, -1));
 
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mh/imagenes/helado2.jpg"))); // NOI18N
         imagen.setAlignmentY(0.0F);
@@ -525,6 +541,22 @@ public class GUI extends javax.swing.JFrame {
         inputPosicion.setText("");
     }//GEN-LAST:event_botonPosicionResetMouseClicked
 
+    private void botonMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMusicaActionPerformed
+        if (musicaEncendida) {
+            clip.stop();
+            botonMusica.setText("Música ON");
+        } else {
+            clip.setFramePosition(0);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            botonMusica.setText("Música OFF");
+        }
+        musicaEncendida = !musicaEncendida;
+    }//GEN-LAST:event_botonMusicaActionPerformed
+
+    private void botonMusicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonMusicaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonMusicaMouseClicked
+
     public void cargarTabla(ArrayList<Helado> lista) {
         DefaultTableModel model = (DefaultTableModel) tablaHelados.getModel(); //Cargas la tabla anterior
         model.setRowCount(0); // Borra filas anteriores
@@ -581,6 +613,7 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonDevolverDinero;
     private javax.swing.JToggleButton botonMonedas;
+    private javax.swing.JButton botonMusica;
     private javax.swing.JButton botonPedir;
     private javax.swing.JButton botonPosicion0;
     private javax.swing.JButton botonPosicion1;
